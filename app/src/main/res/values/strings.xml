@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Android MVVM My Starter</string>
+    <string name="title_f_movies_list">Movies List</string>
+    <string name="title_f_movie_detail">Movie Detail</string>
 </resources>
