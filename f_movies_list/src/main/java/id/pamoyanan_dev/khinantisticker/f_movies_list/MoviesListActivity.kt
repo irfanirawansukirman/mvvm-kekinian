@@ -1,7 +1,7 @@
 package id.pamoyanan_dev.khinantisticker.f_movies_list
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 
 class MoviesListActivity : AppCompatActivity() {
 

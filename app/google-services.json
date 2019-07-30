@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "414873261488",
+    "firebase_url": "https://my-starter-a81d8.firebaseio.com",
+    "project_id": "my-starter-a81d8",
+    "storage_bucket": "my-starter-a81d8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:414873261488:android:3619b275baebe39d",
+        "android_client_info": {
+          "package_name": "id.pamoyanan_dev.khinantisticker.androidmvvmmystarter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "414873261488-02g7bcgai5os4u9s1d14p0dbdj38b1pc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtdO_J4RiJoR64J9Rts5pKjScMpOjGll8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "414873261488-02g7bcgai5os4u9s1d14p0dbdj38b1pc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
