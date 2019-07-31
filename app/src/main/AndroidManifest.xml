@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="id.pamoyanan_dev.khinantisticker.androidmvvmmystarter">
+    package="id.pamoyanandev.khinantisticker.androidmvvmmystarter">
 
     <application
-        android:name=".MyApp"
-        android:allowBackup="false"
+        android:name=".App"
+        android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name="id.pamoyanandev.khinantisticker.androidmvvmmystarter.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

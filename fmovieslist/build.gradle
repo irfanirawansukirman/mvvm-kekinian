@@ -1,0 +1,43 @@
+apply plugin: 'com.android.dynamic-feature'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 29
+
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+    }
+    /**
+     * reference : [
+     * 1: https://developer.android.com/studio/build/build-variants?utm_source=android-studio#product-flavors
+     * ]
+     */
+    flavorDimensions "appLevel"
+    productFlavors {
+        development {
+            // Assigns this product flavor to the "version" flavor dimension.
+            // This property is optional if you are using only one dimension.
+            dimension "appLevel"
+            applicationIdSuffix ".dev"
+            versionNameSuffix "-dev"
+        }
+        production {
+            dimension "appLevel"
+            // applicationIdSuffix ".prod"
+            versionNameSuffix "-prod"
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':app')
+}

@@ -19,7 +19,11 @@ android {
     buildTypes {
         release {
             minifyEnabled false
+            debuggable false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            debuggable true
         }
     }
     dataBinding {
@@ -31,16 +35,41 @@ android {
     }
     signingConfigs {
         release {
+            /**
+             * To To
+             * replace with system env variables for security
+             */
             storeFile file('/Users/irfanirawansukirman/Documents/developmenttools/keystore/lazio12345.jks')
             storePassword 'lazio12345'
             keyAlias = 'lazio12345'
             keyPassword 'lazio12345'
         }
-        debug {
-
+    }
+    /**
+     * reference : [
+     * 1: https://developer.android.com/studio/build/build-variants?utm_source=android-studio#product-flavors,
+     * 2: https://www.zidsworld.com/android-tutorials/here-is-how-to-fix-no-matching-client-found-for-package-name-on-android/
+     * ],
+     * message : [
+     * 1: applicationIdSuffix = if you want using it please update google-service.json config and add any level/flavors in firebase console (project),
+     * ]
+     */
+    flavorDimensions "appLevel"
+    productFlavors {
+        development {
+            // Assigns this product flavor to the "version" flavor dimension.
+            // This property is optional if you are using only one dimension.
+            dimension "appLevel"
+            // applicationIdSuffix ".dev"
+            versionNameSuffix "-dev"
+        }
+        production {
+            dimension "appLevel"
+            // applicationIdSuffix ".prod"
+            versionNameSuffix "-prod"
         }
     }
-    dynamicFeatures = [":f_movies_list", ":f_movie_detail"]
+    dynamicFeatures = [":fmovieslist", ":fmoviedetail"]
 }
 
 dependencies {
@@ -54,8 +83,19 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    api 'com.google.firebase:firebase-core:17.0.1'
-    api 'com.crashlytics.sdk.android:crashlytics:2.10.1'
+    api 'com.google.firebase:firebase-core:17.0.1' // for analytics
+
+    /**
+     * references : [
+     * 1: https://firebase.google.com/support/guides/launch-checklist
+     * ]
+     */
+    /**
+     * messages : [
+     * 1: if app released make sure your pro-guard file has been uploaded in firebase crashlytics
+     * ]
+     */
+    api 'com.crashlytics.sdk.android:crashlytics:2.10.1' // for crashlytics
 
     api project(':lib_extras')
 }

@@ -9,8 +9,8 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/f_movie_detail" />
-            <option value="$PROJECT_DIR$/f_movies_list" />
+            <option value="$PROJECT_DIR$/fmoviedetail" />
+            <option value="$PROJECT_DIR$/fmovieslist" />
             <option value="$PROJECT_DIR$/lib_extras" />
           </set>
         </option>
