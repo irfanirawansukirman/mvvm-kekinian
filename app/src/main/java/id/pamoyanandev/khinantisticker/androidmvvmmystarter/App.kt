@@ -8,8 +8,8 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        // Firebase (fabric.io) crash monitor config.
-        // Active when debug mode only
+        // firebase (fabric.io) crash monitor config.
+        // active when debug mode only
         if (BuildConfig.DEBUG) {
             // reference : [
             // 1: https://firebase.google.com/docs/crashlytics/get-started-android?hl=id,
@@ -17,5 +17,19 @@ class App : Application() {
             // ]
             Fabric.with(this, Crashlytics())
         }
+
+        /**
+         * leak canary for detect leak memory in application.
+         * reference: [
+         * 1: https://developpaper.com/android-memory-leak-location-analysis-and-solution/
+         * ]
+         */
+        // if (LeakCanary.isInAnalyzerProcess(this)) {
+        // This process is dedicated to LeakCanary for heap analysis.
+        // You should not init your app in this process.
+        // return
+        // }
+        // LeakCanary.install(this)
+        // Normal app init code...
     }
 }

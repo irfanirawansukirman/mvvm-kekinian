@@ -1,0 +1,55 @@
+apply from: '../common-depends-config.gradle'
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+
+    //kotlin language n support block
+    api kotlinLibrary.languagePluginX
+    api kotlinLibrary.extCoreX
+
+    //android support library block
+    api androidSupportLibrary.appCompatX
+    api androidSupportLibrary.constraintX
+    api androidSupportLibrary.recyclerX
+    api androidSupportLibrary.coordinatorX
+    api androidSupportLibrary.designX // material components
+
+    //analytic block
+    api firebaseLibrary.fbCore // for analytics
+
+    /**
+     * references : [
+     * 1: https://firebase.google.com/support/guides/launch-checklist
+     * ]
+     */
+    /**
+     * messages : [
+     * 1: if app released make sure your pro-guard file has been uploaded in firebase crashlytics
+     * ]
+     */
+    api firebaseLibrary.fabricCrash // for crashlytics
+
+    //network, serializer+deserializer, threads block
+    api squareLibrary.retrofit
+    api squareLibrary.okHttp
+    api kotlinLibrary.serializableX
+    api kotlinLibrary.serialConverterX
+    api kotlinLibrary.coroutinesAndroidX
+    api kotlinLibrary.coroutinesCoreX
+
+    //di block
+    api diLibrary.koinAndoid
+    api diLibrary.koinVM
+
+    //image block
+    api squareLibrary.picasso
+
+    //util block
+    //debugApi squareLibrary.debLeakCanary
+    // api squareLibrary.relLeakCanary
+
+    //testing block
+    testImplementation test.jUnit
+    androidTestImplementation test.jUnitX
+    androidTestImplementation test.espressoCore
+}

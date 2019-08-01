@@ -1,0 +1,72 @@
+apply from: '../common-depends-config.gradle'
+
+android {
+    compileSdkVersion appConfig.sdkTarget
+    buildToolsVersion appConfig.buildToolsV
+    defaultConfig {
+        applicationId appConfig.appId
+        minSdkVersion appConfig.sdkMin
+        targetSdkVersion appConfig.sdkTarget
+        versionCode appConfig.buildNumber
+        versionName appConfig.nameVersion
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            debuggable false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            debuggable true
+            testCoverageEnabled true
+        }
+    }
+    dataBinding {
+        enabled true
+    }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+    lintOptions {
+        abortOnError false
+    }
+    signingConfigs {
+        release {
+            /**
+             * To To
+             * replace with system env variables for security
+             */
+            storeFile file(JKS_PATH)
+            storePassword PASS_SECRET
+            keyAlias = PASS_ALIAS
+            keyPassword PASS_SECRET
+        }
+    }
+    /**
+     * reference : [
+     * 1: https://developer.android.com/studio/build/build-variants?utm_source=android-studio#product-flavors,
+     * 2: https://www.zidsworld.com/android-tutorials/here-is-how-to-fix-no-matching-client-found-for-package-name-on-android/
+     * ],
+     * message : [
+     * 1: applicationIdSuffix = if you want using it please update google-service.json config and add any level/flavors in firebase console (project),
+     * ]
+     */
+    flavorDimensions appConfig.flavorDims
+    productFlavors {
+        development {
+            // Assigns this product flavor to the "version" flavor dimension.
+            // This property is optional if you are using only one dimension.
+            dimension appConfig.flavorDims
+            // applicationIdSuffix ".dev"
+            versionNameSuffix appConfig.nameSuffixDv
+        }
+        production {
+            dimension appConfig.flavorDims
+            // applicationIdSuffix ".prod"
+            versionNameSuffix appConfig.nameSuffixPr
+        }
+    }
+    dynamicFeatures = [":fmovieslist", ":fmoviedetail"]
+}
