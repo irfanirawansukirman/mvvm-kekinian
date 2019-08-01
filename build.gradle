@@ -7,21 +7,21 @@ buildscript {
 
         // firebase crash
         maven { url 'https://maven.fabric.io/public' }
-        maven { url "https://plugins.gradle.org/m2/" }
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.4.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "org.jetbrains.kotlin:kotlin-serialization:$kotlin_version"
-        classpath 'io.fabric.tools:gradle:1.30.0'
+        classpath 'io.fabric.tools:gradle:1.31.0'
         classpath 'com.google.gms:google-services:4.3.0'
+        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.7"
+        classpath 'com.dicedmelon.gradle:jacoco-android:0.1.4'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
-}
-
-plugins {
-    id "io.gitlab.arturbosch.detekt" version "1.0.0.M12.4"
 }
 
 allprojects {
@@ -43,21 +43,4 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
-apply plugin: 'io.gitlab.arturbosch.detekt'
-
-detekt {
-    debug = true
-    version = "1.0.0.M12.3"
-    profile("main") {
-        input = "$projectDir/app/src/main/java"
-        output = "$project.rootDir/detekt/output.xml"
-        config = "$project.rootDir/detekt.yml"
-        ruleSets = "$project.rootDir/lib/detect-custom-ruleset.jar"
-        filters = ".*test.*,.*/resources/.*"
-    }
-}
-//check.dependsOn
-
-//        ./gradlew sonarqube \
-//  -Dsonar.host.url=http://localhost:9000 \
-//  -Dsonar.login=883debcbd24b364531c316331970daff2ecea69f
+//./gradlew clean test jacocoTestReport sonarqube -Dsonar.host.url=http://localhost:9000 -Dsonar.login=883debcbd24b364531c316331970daff2ecea69f

@@ -4,6 +4,10 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlinx-serialization'
 apply plugin: 'io.fabric'
+apply plugin: 'org.sonarqube'
+apply plugin: 'jacoco-android'
+
+apply from: '../sonarjac.gradle'
 
 android {
     compileSdkVersion 29
@@ -24,6 +28,7 @@ android {
         }
         debug {
             debuggable true
+            testCoverageEnabled true
         }
     }
     dataBinding {
@@ -32,6 +37,9 @@ android {
     compileOptions {
         sourceCompatibility = 1.8
         targetCompatibility = 1.8
+    }
+    lintOptions {
+        abortOnError false
     }
     signingConfigs {
         release {
@@ -100,5 +108,4 @@ dependencies {
     api project(':lib_extras')
 }
 
-// active when using google auth, maps, etc
 apply plugin: 'com.google.gms.google-services'
