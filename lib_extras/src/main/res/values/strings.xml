@@ -1,7 +1,0 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name">lib_extras</string>
-
-    <!-- fabric crash config and key -->
-    <string name="com.crashlytics.useFirebaseAppId" tools:ignore="ExtraTranslation">true</string>
-    <string name="fabric_api_key">47a797f182ed4111cbba7e2d9aa65dc3f874ad6d</string>
-</resources>

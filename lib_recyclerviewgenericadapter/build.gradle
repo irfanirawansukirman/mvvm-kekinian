@@ -1,0 +1,65 @@
+apply plugin: 'com.android.library'
+apply from: '../common-depends-config.gradle'
+
+android {
+    compileSdkVersion appConfig.sdkTarget
+    buildToolsVersion appConfig.buildToolsV
+    defaultConfig {
+        minSdkVersion appConfig.sdkMin
+        targetSdkVersion appConfig.sdkTarget
+        versionCode appConfig.buildNumber
+        versionName appConfig.nameVersion
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+
+    api androidSupportLibrary.appCompatX
+    api androidSupportLibrary.recyclerX
+
+    testImplementation test.jUnit
+    androidTestImplementation test.jUnitX
+    androidTestImplementation test.espressoCore
+}
+
+//ext {
+//    bintrayRepo = 'GenericAdapter'
+//    bintrayName = 'GenericAdapter'
+//
+//    publishedGroupId = 'com.leodroidcoder'
+//    libraryName = 'Generic RecyclerView Adapter'
+//    artifact = 'generic-adapter'
+//
+//    libraryDescription = 'Generic RecyclerView adapter. Lightweight library which helps to illuminate boilerplate code when creating RecyclerView adapters.'
+//
+//    siteUrl = 'https://github.com/LeoDroidCoder/generic-adapter'
+//    gitUrl = 'https://github.com/LeoDroidCoder/generic-adapter.git'
+//
+//    libraryVersion = '1.0.1'
+//
+//    developerId = 'leodroidcoder'
+//    developerName = 'Leonid Ustenko'
+//    developerEmail = 'Leo.Droidcoder@gmail.com'
+//
+//    licenseName = 'The Apache Software License, Version 2.0'
+//    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+//    allLicenses = ["Apache-2.0"]
+//}
+//
+//
+//tasks.withType(Javadoc) {
+//    options.addStringOption('Xdoclint:none', '-quiet')
+//    options.addStringOption('encoding', 'UTF-8')
+//    options.addStringOption('charSet', 'UTF-8')
+//}
+//
+//apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+//apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'

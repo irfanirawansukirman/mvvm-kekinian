@@ -1,2 +1,2 @@
-include ':app', ':fmovieslist', ':fmoviedetail', ':lib_extras'
+include ':app', ':fmovieslist', ':fmoviedetail', ':lib_recyclerviewgenericadapter'
 rootProject.name='Android MVVM My Starter'

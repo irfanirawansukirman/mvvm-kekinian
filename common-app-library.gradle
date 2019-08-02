@@ -9,8 +9,8 @@ dependencies {
 
     //android support library block
     api androidSupportLibrary.appCompatX
-    api androidSupportLibrary.constraintX
     api androidSupportLibrary.recyclerX
+    api androidSupportLibrary.constraintX
     api androidSupportLibrary.coordinatorX
     api androidSupportLibrary.designX // material components
 

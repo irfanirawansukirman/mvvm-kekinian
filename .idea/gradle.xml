@@ -11,7 +11,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/fmoviedetail" />
             <option value="$PROJECT_DIR$/fmovieslist" />
-            <option value="$PROJECT_DIR$/lib_extras" />
+            <option value="$PROJECT_DIR$/lib_recyclerviewgenericadapter" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
