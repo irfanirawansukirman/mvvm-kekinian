@@ -15,8 +15,6 @@
  */
 package com.leodroidcoder.genericadapter;
 
-import android.support.v7.widget.RecyclerView;
-
 /**
  * The most commonly used listener with the {@link GenericRecyclerViewAdapter}.
  * It is sutable for all cases where one click listener for a RecyclerView item is enough.
@@ -29,7 +27,7 @@ import android.support.v7.widget.RecyclerView;
 public interface OnRecyclerItemClickListener extends BaseRecyclerListener {
 
     /**
-     * Returns clicked item position {@link RecyclerView.ViewHolder#getAdapterPosition()}
+     * Returns clicked item position {@link androidx.recyclerview.widget.RecyclerView.ViewHolder#getAdapterPosition()}
      *
      * @param position clicked item position.
      */

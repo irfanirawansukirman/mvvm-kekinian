@@ -15,11 +15,13 @@
  */
 package com.leodroidcoder.genericadapter.decorator;
 
+import android.annotation.SuppressLint;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.LayoutRes;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
+
+import androidx.annotation.LayoutRes;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * Item decorator which draws a divider only between views of the same types {@link #viewType}
@@ -38,7 +40,8 @@ public class FilterableItemDecorator extends RecyclerView.ItemDecoration {
      * @author Leonid Ustenko (Leo.Droidcoder@gmail.com)
      * @since 1.0.0
      */
-    private @LayoutRes int viewType;
+    private @LayoutRes
+    int viewType;
 
     public FilterableItemDecorator(Drawable dividerDrawable, @LayoutRes int viewType) {
         validateDrawableOrThrow(dividerDrawable);
@@ -47,6 +50,7 @@ public class FilterableItemDecorator extends RecyclerView.ItemDecoration {
     }
 
 
+    @SuppressLint("ResourceType")
     @Override
     public void onDrawOver(Canvas canvas, RecyclerView parent, RecyclerView.State state) {
         RecyclerView.Adapter adapter = parent.getAdapter();

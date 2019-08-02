@@ -15,8 +15,9 @@
  */
 package com.leodroidcoder.genericadapter;
 
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
@@ -55,7 +56,7 @@ public abstract class BaseViewHolder<T, L extends BaseRecyclerListener> extends 
     /**
      * Bind data to the item.
      * Override this method for using the payloads in order to achieve the full power of DiffUtil
-     * {@link android.support.v7.util.DiffUtil.Callback}
+     * {@link androidx.recyclerview.widget.DiffUtil.Callback}
      *
      * @param item object, associated with the item.
      * @author Leonid Ustenko (Leo.Droidcoder@gmail.com)

@@ -17,9 +17,10 @@ package com.leodroidcoder.genericadapter.decorator;
 
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.LinearLayout;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * Item decorator {@link RecyclerView.ItemDecoration} which allows using
