@@ -1,6 +1,7 @@
 package id.pamoyanandev.khinantisticker.androidmvvmmystarter
 
 import android.app.Application
+import android.content.Context
 import com.crashlytics.android.Crashlytics
 import io.fabric.sdk.android.Fabric
 
@@ -31,5 +32,12 @@ class App : Application() {
         // }
         // LeakCanary.install(this)
         // Normal app init code...
+        instance = this
+    }
+
+    companion object {
+        lateinit var instance: App
+
+        fun getAppContext(): Context = instance.applicationContext
     }
 }

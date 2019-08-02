@@ -1,10 +1,12 @@
 package id.pamoyanandev.khinantisticker.fmovieslist
 
 import android.os.Bundle
-import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
-import com.crashlytics.android.Crashlytics
+import androidx.lifecycle.Observer
 import id.pamoyanan_dev.khinantisticker.f_movies_list.R
+import id.pamoyanandev.khinantisticker.androidmvvmmystarter.App
+import id.pamoyanandev.khinantisticker.androidmvvmmystarter.util.ext.getViewModel
+import id.pamoyanandev.khinantisticker.androidmvvmmystarter.util.ext.showToast
 
 class MoviesListActivity : AppCompatActivity() {
 
@@ -12,9 +14,12 @@ class MoviesListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.movies_list_activity)
 
-        Handler().postDelayed({
-
-        }, 12345)
+        val vm = getViewModel { MoviesListVM(App.instance) }
+        vm.apply {
+            message.observe(this@MoviesListActivity, Observer {
+                showToast(it)
+            })
+        }
     }
 
     companion object {

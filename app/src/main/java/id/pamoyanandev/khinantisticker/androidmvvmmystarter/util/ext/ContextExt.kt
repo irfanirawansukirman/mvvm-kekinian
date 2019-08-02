@@ -2,6 +2,9 @@ package id.pamoyanandev.khinantisticker.androidmvvmmystarter.util.ext
 
 import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
+import android.widget.Toast
 
 /**
  * Using it for moving to another page with activity package name (usually modular package) with params
@@ -60,4 +63,19 @@ fun Context.navigatorWithActivityClearTop(
     //=========== How to using it ===========
     // navigatorWithActivityClearTop<YourActivity>()
     //=======================================
+}
+
+fun Context.showToast(
+    message: String
+) {
+    Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+}
+
+fun Context.isNetworkAvailable(context: Context): Boolean? {
+    var isConnected: Boolean? = false // Initial Value
+    val connectivityManager =
+        context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+    val activeNetwork: NetworkInfo? = connectivityManager.activeNetworkInfo
+    if (activeNetwork != null && activeNetwork.isConnected) isConnected = true
+    return isConnected
 }

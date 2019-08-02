@@ -14,6 +14,11 @@ dependencies {
     api androidSupportLibrary.coordinatorX
     api androidSupportLibrary.designX // material components
 
+    //aac block
+    api aacLibrary.lifecycleExt
+
+    kapt aacLibrary.lifecycleComp
+
     //analytic block
     api firebaseLibrary.fbCore // for analytics
 
@@ -32,6 +37,7 @@ dependencies {
     //network, serializer+deserializer, threads block
     api squareLibrary.retrofit
     api squareLibrary.okHttp
+    api squareLibrary.okHttpIntcpt
     api kotlinLibrary.serializableX
     api kotlinLibrary.serialConverterX
     api kotlinLibrary.coroutinesAndroidX
