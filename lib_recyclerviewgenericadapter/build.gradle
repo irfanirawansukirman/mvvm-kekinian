@@ -1,4 +1,6 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
 apply from: '../common-depends-config.gradle'
 
 android {
@@ -20,14 +22,19 @@ android {
 }
 
 dependencies {
-    api fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    api androidSupportLibrary.appCompatX
-    api androidSupportLibrary.recyclerX
+    implementation androidSupportLibrary.appCompatX
+    implementation androidSupportLibrary.recyclerX
+
+    implementation kotlinLibrary.languagePluginX
 
     testImplementation test.jUnit
     androidTestImplementation test.jUnitX
     androidTestImplementation test.espressoCore
+}
+repositories {
+    mavenCentral()
 }
 
 //ext {

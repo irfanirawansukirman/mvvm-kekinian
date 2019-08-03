@@ -50,6 +50,8 @@ dependencies {
     //image block
     api squareLibrary.picasso
 
+    api project(':lib_recyclerviewgenericadapter')
+
     //util block
     //debugApi squareLibrary.debLeakCanary
     // api squareLibrary.relLeakCanary

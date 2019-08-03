@@ -25,7 +25,7 @@ abstract class BaseViewModel(application: Application) : AndroidViewModel(applic
     private val coroutinesContext: CoroutineContext
         get() = parentJob + Dispatchers.IO
 
-    val coroutinesScope = CoroutineScope(coroutinesContext)
+    val vmScope = CoroutineScope(coroutinesContext)
 
     open fun startWork() {}
 
